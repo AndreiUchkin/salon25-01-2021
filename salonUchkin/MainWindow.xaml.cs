@@ -21,6 +21,15 @@ namespace salonUchkin
     /// </summary>
     public partial class MainWindow : Window
     {
+        string FirstName;
+        string LastName;
+        string Patronymic;
+        string Birthday;
+        string RegistrationDate;
+        string Email;
+        string Phone;
+        string GenderCode;
+        string PhotoPath;
         public MainWindow()
         {
             InitializeComponent();
@@ -54,6 +63,8 @@ namespace salonUchkin
             return _clients;
         }
 
+
+
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             using (Context db = new Context())
@@ -79,6 +90,69 @@ namespace salonUchkin
         {
             List<Client> clients = Search(poisk.Text);
             ClientsDG.ItemsSource = clients;
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            using (Context db = new Context())
+            {
+                if (TableCB.SelectedIndex == 0)
+                {
+                    ClientsDG.ItemsSource = db.Client.ToList();
+                }
+                else if(TableCB.SelectedIndex == 1)
+                {
+                    ClientsDG.ItemsSource = db.Product.ToList();
+                }
+                else { ClientsDG.ItemsSource = db.Service.ToList(); }
+            }
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            
+
+            
+        }
+
+        private void ClientsDG_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Client client = ClientsDG.SelectedItem as Client;
+            if (client != null)
+                imageV.Source = new BitmapImage(new Uri(client.PhotoPath));
+        }
+
+        private void ComboBoxItem_Selected(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void izmena_Click(object sender, RoutedEventArgs e)
+        {
+            Client client = ClientsDG.SelectedItem as Client; //Код для выбора ячейки
+            if (client != null)
+            {
+                FirstName = client.FirstName;
+                LastName = client.LastName;
+                Patronymic = client.Patronymic;
+                Birthday = Convert.ToString(client.Birthday);
+                RegistrationDate = Convert.ToString(client.RegistrationDate);
+                Email = client.Email;
+                Phone = client.Phone;
+                GenderCode = Convert.ToString(client.GenderCode);
+                PhotoPath = client.PhotoPath;
+                var dg = ClientsDG;
+                var image = imageV;
+                Window2 s = new Window2(FirstName, LastName, Patronymic, Birthday, RegistrationDate, Email, Phone, GenderCode, PhotoPath, dg);
+                s.Show();
+                this.Close();
+            }
+            else MessageBox.Show("Вы не выбрали строку для изменения","Уведомление");
+        }
+
+        private void ComboBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+            MessageBox.Show("Нет", "Работает?");
         }
     }
     }

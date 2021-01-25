@@ -5,13 +5,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:salonUchkin"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="800">
+        Title="MainWindow" Height="340" Width="800">
     <Grid>
-        <DataGrid x:Name="ClientsDG" HorizontalAlignment="Left" Height="184" Margin="0,10,0,0" VerticalAlignment="Top" Width="782"/>
-        <Button  Content="Добавление" HorizontalAlignment="Left" Margin="10,231,0,0" VerticalAlignment="Top" Width="100" Height="50" Click="Button_Click" FontSize="16"/>
-        <Button Content="Удаление" HorizontalAlignment="Left" Margin="130,231,0,0" VerticalAlignment="Top" Width="100" Height="50" Click="Button_Click_1" FontSize="16"/>
-        <Button Content="Поиск" HorizontalAlignment="Left" Margin="252,256,0,0" VerticalAlignment="Top" Width="100" Click="Button_Click_2" Height="25" FontSize="16"/>
-        <TextBox x:Name="poisk" HorizontalAlignment="Left" Height="25" Margin="252,231,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100"/>
+        <DataGrid x:Name="ClientsDG" HorizontalAlignment="Left" Height="184" Margin="0,27,0,0" VerticalAlignment="Top" Width="782" SelectionChanged="ClientsDG_SelectionChanged">
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Click="Button_Click" Header="Добавить"></MenuItem>
+                    <MenuItem  Click="izmena_Click"  Header="Изменить"></MenuItem>
+                    <MenuItem Click="Button_Click_1"  Header="Удалить"></MenuItem>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+        </DataGrid>
+
+
+        <Button  Content="Добавление" HorizontalAlignment="Left" Margin="766,220,0,0" VerticalAlignment="Top" Width="16" Height="20" Click="Button_Click" FontSize="12"/>
+        <Button Content="Удаление" HorizontalAlignment="Left" Margin="766,245,0,0" VerticalAlignment="Top" Width="16" Height="20" Click="Button_Click_1" FontSize="12"/>
+        <Button Content="Поиск" HorizontalAlignment="Left" Margin="10,236,0,0" VerticalAlignment="Top" Width="133" Click="Button_Click_2" Height="20" FontSize="12"/>
+        <TextBox x:Name="poisk" HorizontalAlignment="Left" Height="20" Margin="10,216,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="133"></TextBox>
+        <ComboBox Name="TableCB" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBox_SelectionChanged">
+            <ComboBoxItem>Клиент</ComboBoxItem>
+            <ComboBoxItem>Продукты</ComboBoxItem>
+            <ComboBoxItem>Сервис</ComboBoxItem>
+        </ComboBox>
+        <Image Name="imageV" HorizontalAlignment="Left" Height="83" Margin="148,211,0,0" VerticalAlignment="Top" Width="140"/>
+        <Button x:Name="izmena" Content="Изменение" HorizontalAlignment="Left" Margin="766,270,0,0" VerticalAlignment="Top" Width="16" Click="izmena_Click" Height="20" RenderTransformOrigin="-13.429,2.55"/>
+        <ComboBox HorizontalAlignment="Left" Margin="264,220,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBox_SelectionChanged_1">
+           
+                <ComboBoxItem>fdfd</ComboBoxItem>
+                <ComboBoxItem>fdfdfcv</ComboBoxItem>
+            </ComboBox>
+      
+
+
+
 
     </Grid>
 </Window>

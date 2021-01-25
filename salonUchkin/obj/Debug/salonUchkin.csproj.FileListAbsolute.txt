@@ -21,3 +21,5 @@ C:\Users\uchkin.aa0162\source\repos\salonUchkin\salonUchkin\obj\Debug\salonUchki
 C:\Users\uchkin.aa0162\source\repos\salonUchkin\salonUchkin\obj\Debug\salonUchkin.pdb
 C:\Users\uchkin.aa0162\source\repos\salonUchkin\salonUchkin\obj\Debug\Window1.g.cs
 C:\Users\uchkin.aa0162\source\repos\salonUchkin\salonUchkin\obj\Debug\Window1.baml
+C:\Users\uchkin.aa0162\source\repos\salonUchkin\salonUchkin\obj\Debug\Window2.g.cs
+C:\Users\uchkin.aa0162\source\repos\salonUchkin\salonUchkin\obj\Debug\Window2.baml
